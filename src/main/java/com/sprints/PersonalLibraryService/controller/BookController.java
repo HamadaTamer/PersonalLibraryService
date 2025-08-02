@@ -1,7 +1,7 @@
-package com.example.bookcrud.controller;
+package com.sprints.PersonalLibraryService.controller;
 
-import com.example.bookcrud.model.Book;
-import com.example.bookcrud.repository.BookRepository;
+import com.sprints.PersonalLibraryService.model.Book;
+import com.sprints.PersonalLibraryService.repository.BookRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

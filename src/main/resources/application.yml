@@ -6,6 +6,10 @@ library:
   name: My Personal Library
   mode: default
 
+app:
+  email: library@example.com
+  phone: +1-555-0123
+
 logging:
   level:
     com.sprints.PersonalLibraryService: INFO

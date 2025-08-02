@@ -6,6 +6,10 @@ library:
   name: Development Library
   mode: development
 
+app:
+  email: dev-library@example.com
+  phone: +1-555-0124
+
 logging:
   level:
     com.sprints.PersonalLibraryService: DEBUG

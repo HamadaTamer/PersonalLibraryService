@@ -1,4 +1,4 @@
-package com.example.bookcrud.model;
+package com.sprints.PersonalLibraryService.model;
 
 import jakarta.persistence.*;
 

@@ -6,6 +6,10 @@ library:
   name: Production Library
   mode: production
 
+app:
+  email: prod-library@example.com
+  phone: +1-555-0125
+
 logging:
   level:
     com.sprints.PersonalLibraryService: INFO
