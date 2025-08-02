@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: PersonalLibraryService
+
+library:
+  name: My Personal Library
+  mode: default
+
+logging:
+  level:
+    com.sprints.PersonalLibraryService: INFO
+    org.springframework.boot: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+server:
+  port: 8080
