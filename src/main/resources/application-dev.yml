@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: PersonalLibraryService
+
+library:
+  name: Development Library
+  mode: development
+
+logging:
+  level:
+    com.sprints.PersonalLibraryService: DEBUG
+    org.springframework.boot: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+server:
+  port: 8080
