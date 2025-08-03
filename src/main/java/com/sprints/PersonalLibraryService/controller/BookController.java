@@ -60,4 +60,74 @@ public class BookController {
     public void deleteBook(@PathVariable Long id) {
         repo.deleteById(id);
     }
+
+    //we can find a book by author using the ORM built query:
+    @GetMapping("/author/{author}")
+    public List<Book> getBooksByAuthor(@PathVariable String author) {
+        return repo.findByAuthor(author);
+    }
+
+
+    // way 1
+    @GetMapping("/author/{author}/genre/{genre}")
+    public List<Book> getBooksByAuthorAndGenre(@PathVariable String author, @PathVariable String genre){
+        return repo.findByAuthorAndGenre(author, genre);
+    }
+
+    //way 2:
+    // example usage:
+    // /books/search?author=Agatha Christie&genre=Mystery
+    @GetMapping("/search")
+    public ResponseEntity<List<Book>> getBooksByAuthorAndGenre2(@RequestParam String author, @RequestParam String genre) {
+        List<Book> books = repo.findByAuthorAndGenre(author, genre);
+        if (books.isEmpty()) {
+            return ResponseEntity.notFound().build();   // 404 not found
+    //      return ResponseEntity.noContent().build();  // HTTP 204 No Content
+        } else {
+            return ResponseEntity.ok(books);
+        }
+    }
+
+    // using ResponseEntity vs not using it:
+    //so basically not using it we will always return 200 ok even if we didnt find anything or whatever
+
+    /*  simple way:
+
+       @GetMapping("/books")
+        public List<Book> getAllBooks() {
+            return repo.findAll();
+        }
+
+    returns:
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        []
+
+    using reponseEntity as above, we can control the HTTP status codes and will return sth like:
+
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        [
+            {
+                "id": 1,
+                "title": "Book Title",
+                "author": "Author Name"
+            }
+        ]
+
+        OR:
+
+        HTTP/1.1 404 Not Found
+
+        or:
+
+        HTTP/1.1 204 No Content
+
+
+    * */
+
+
 }
